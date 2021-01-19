@@ -10,7 +10,7 @@
 ## Home
 ![downloads](./readme/home.JPG)  
 ## New wide Profile view  
-![downloads](./readme/profile.JPG)   
+![downloads](./readme/profile.jpg)   
 ## Video has control
 ![downloads](./readme/player.JPG)
 ## The great content only profile view ( click ++ in profile)
