@@ -9,7 +9,7 @@
 # Some Screenshots
 ## Home
 ![downloads](./readme/home.JPG)  
-## New wide Profile view
+## New wide Profile view  
 ![downloads](./readme/profile.JPG)   
 ## Video has control
 ![downloads](./readme/player.JPG)
