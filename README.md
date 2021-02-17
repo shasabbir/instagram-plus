@@ -8,11 +8,11 @@
 
 # Some Screenshots
 ## Home
-![downloads](./readme/1.png)![downloads](./readme/1.1.png)![downloads](./readme/1.3.png)![downloads](./readme/t.png)
+![downloads](./readme/1.PNG)![downloads](./readme/1.1.PNG)![downloads](./readme/1.3.PNG)![downloads](./readme/t.png)
 ## New wide Profile view  
 ![downloads](./readme/profile.png)   
 ## All post has download option and Video has control
-![downloads](./readme/player.png)
+![downloads](./readme/player.PNG)
 ## The great content only profile view ( click ++ in profile)
 ![downloads](./readme/scrollbar.JPG)  
 
