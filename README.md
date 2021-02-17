@@ -1,6 +1,6 @@
 # Instagram+ (DARK)
 ## What you will get
-1. A cool UI.
+1. 3 cool UI.(Dark, Blue, White)
 2. Downloading option in everything.
 3. Wide profile view.
 4. A great content only profile UI (click ++ in profile) .
@@ -8,11 +8,11 @@
 
 # Some Screenshots
 ## Home
-![downloads](./readme/home.JPG)  
+![downloads](./readme/1.png)![downloads](./readme/1.1.png)![downloads](./readme/1.3.png)![downloads](./readme/t.png)
 ## New wide Profile view  
-![downloads](./readme/profile.jpg)   
-## Video has control
-![downloads](./readme/player.JPG)
+![downloads](./readme/profile.png)   
+## All post has download option and Video has control
+![downloads](./readme/player.png)
 ## The great content only profile view ( click ++ in profile)
 ![downloads](./readme/scrollbar.JPG)  
 
