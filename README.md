@@ -8,7 +8,9 @@
 
 # Some Screenshots
 ## Home
-![downloads](./readme/1.PNG)![downloads](./readme/1.1.PNG)![downloads](./readme/1.3.PNG)![downloads](./readme/t.png)
+![downloads](./readme/1.PNG)![downloads](./readme/1.1.PNG)![downloads](./readme/1.3.PNG)
+## Theme selecting oftion which stays the same after you close window
+![downloads](./readme/t.png)
 ## New wide Profile view  
 ![downloads](./readme/profile.png)   
 ## All post has download option and Video has control
