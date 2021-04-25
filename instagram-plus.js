@@ -4,13 +4,15 @@
 // @description	  This is a Dark Mode for Instagram that has lots of things more.
 // @author        Sabbir (shasabbir234@gmail.com)
 // @homepage      https://github.com/shasabbir/instagram-plus-dark
+// @icon         https://svgshare.com/i/VDM.svg
 // @include       http://instagram.com/*
 // @include       https://instagram.com/*
 // @include       http://*.instagram.com/*
 // @include       https://*.instagram.com/*
 // @run-at        document-idle
-// @version       1.102
+// @version       1.105
 // ==/UserScript==
+
 function dark() {
     var css = [
         " /* Full wide start */",
@@ -367,7 +369,20 @@ function dark() {
         ".theme {",
         "margin-left: 20px !important;",
         "}",
-
+    "#react-root > section > main > div > header > section > div.nZSzR > div.Igw0E.IwRSH.eGOV_.ybXk5._4EzTm > div > div:nth-child(2) > div > span > span.mLCHD._1OSdk > button > div > span > svg {",//similar account
+    "fill: white !important;",
+    "}",
+		"#react-root > section > main > div > div.NP414.ccgHY.GZkEI > div.Igw0E.IwRSH.eGOV_._4EzTm > div > button.Szr5J._6CZji > div,#react-root > section > main > div > div.NP414.ccgHY.GZkEI > div.Igw0E.IwRSH.eGOV_._4EzTm > div > button.Szr5J.POSa_ > div {",//more similar arrow
+      "background: #4a4552a1 !important;",
+    	"border-bottom-left-radius: 20px !important;",
+    	"border-top-left-radius: 20px !important;",
+    	"border-bottom-right-radius: 8px !important;",
+    	"border-top-right-radius: 8px !important;",
+        "}",
+			"#react-root > section > main > div > div._4bSq7 > div > div > div > ul > * > div {",//highlighted stories
+    "border-radius: 16px !important;",
+    "background: #0f0e0e !important;",
+"}",
 
 
     ].join("\n");
@@ -765,6 +780,16 @@ function blue() {var css = [
     ".theme {",
     "margin-left: 20px !important;",
     "}",
+    "#react-root > section > main > div > header > section > div.nZSzR > div.Igw0E.IwRSH.eGOV_.ybXk5._4EzTm > div > div > div > span > span.mLCHD._1OSdk > button > div {",//similar account
+    "background-color: #2196f3 !important;",
+    "}",
+    "#react-root > section > main > div > header > section > div.nZSzR > div.Igw0E.IwRSH.eGOV_.ybXk5._4EzTm > div > div:nth-child(2) > div > span > span.mLCHD._1OSdk > button > div > span > svg {",//similar account
+    "fill: white !important;",
+    "}",
+		"#react-root > section > main > div > header > section > div.nZSzR > div.Igw0E.IwRSH.eGOV_.ybXk5._4EzTm > div > div:nth-child(2) > div > span > span.mLCHD._1OSdk > button > div {",//similar account
+    "background-color: #20183000 !important;",
+    "}",
+		//""#react-root > section > main > div > header > section > div.nZSzR > div.Igw0E.IwRSH.eGOV_.ybXk5._4EzTm > div > div:nth-child(2) > div > span > span.mLCHD._1OSdk > button > div > span > svg
 
 
 
@@ -1014,7 +1039,6 @@ function normal() {var css = [
 
                   }
 const delay = ms => new Promise(res => setTimeout(res, ms));
-
 (function() {
     var themex=localStorage.getItem("num2");
     if(themex==null){themex=1;}
@@ -1051,11 +1075,25 @@ async function themebutton() {
         theContainer.append(themeContaineraa1);
         themeContaineraa1.append(aa1,themeContaineraa2);themeContaineraa2.append(aa2,themeContaineraa3);themeContaineraa3.append(aa3);
         console.log("theme changer done");}
+
 }
 function goodies(){
+		var trk=0;
+    var player =true;var followi =true;
+	window.onscroll = function(e) {//scroll hide navigation bar
+  // Scroll vanish navigation
+  if(this.oldScroll < this.scrollY){
+    document.querySelector("#react-root > section > nav > div._8MQSO.Cx7Bp > div").style.zoom=.000001;
+}
+if(this.oldScroll > this.scrollY){
+    document.querySelector("#react-root > section > nav > div._8MQSO.Cx7Bp > div").style.zoom=1;
+}
+  this.oldScroll = this.scrollY;
+}
 
-    /*--------------Full size media scrollbar-----------*/
-    var k=0;
+    /*--------------Full size media scrollbar -----------*/
+		
+		function scroll(){var k=0;
     var durl = document.URL;
     var res1 = durl.substring(0, 24);
     var res2 = durl.substring(0, 28);
@@ -1072,10 +1110,11 @@ function goodies(){
     }
     if(durl=="https://www.instagram.com/"){
         k=1;
-    }
+}
 
-
+		
     if(k==0){
+			
         console.log('hi insta scroll');
         // https://www.instagram.com/graphql/query/?query_hash=<hash>&variables={%22shortcode%22:%22<shortcode>%22}
 
@@ -1287,7 +1326,17 @@ function goodies(){
                          })();
                      }
                      startUp();
-                 }
+                 }}
+	scroll();
+	
+window.addEventListener('click', event => {trk++;//Theme button when tab change 
+  console.log(trk);
+			if(document.URL=="https://www.instagram.com/"){if(document.querySelector("#react-root > section > nav > div._8MQSO.Cx7Bp > div > div > div.ctQZg > div > div.theme > button > h2")==null){themebutton();}}
+			else if(document.URL=="https://www.instagram.com/accounts/access_tool/accounts_you_follow" && followi==true){setTimeout(function(){console.log("follow list");followi=false;follow();}, 1000);
+	}
+			/*else{setTimeout(function(){
+		if(document.querySelector("#react-root > section > nav > div._8MQSO.Cx7Bp > div > div > div.ctQZg > div:nth-child(1) > h2")==null){console.log("NOW ++");scroll();}}, 3000);
+	}*/});
 
     /*-------------Download Button----------*/
 
@@ -1297,6 +1346,8 @@ function goodies(){
     var dcolor;
     if(localStorage.getItem("num2")==3){dcolor="black";}else{dcolor="white";}
     const attachLink = true; // add link into the button elements
+    const postFilenameTemplate = "%id%-%datetime%-%medianame%.%ext%";
+    const storyFilenameTemplate = postFilenameTemplate;
 
     // ==================
 
@@ -1306,9 +1357,9 @@ function goodies(){
         var dd = date.getDate();
 
         return [date.getFullYear(),
-                (mm > 9 ? '' : '0') + mm,
-                (dd > 9 ? '' : '0') + dd
-               ].join('');
+        (mm > 9 ? '' : '0') + mm,
+        (dd > 9 ? '' : '0') + dd
+        ].join('');
     }
 
     var svgDownloadBtn =
@@ -1372,10 +1423,10 @@ function goodies(){
     }
 
     var checkExistTimer = setInterval(function () {
-        let sharePostSelector = "section span button";
+        let sharePostSelector = "article section span button";
         let menuSeletor = "header button > span";
         let storySeletor = "header button > span";
-        let profileSelector = "header section svg";
+        let profileSelector = "header section svg circle";
 
         // check story
         if (document.getElementsByClassName("custom-btn").length === 0) {
@@ -1402,7 +1453,7 @@ function goodies(){
     }, 500);
 
     function append2Header(node, btn) {
-        node.parentNode.parentNode.parentNode.insertBefore(btn, node.parentNode.parentNode);
+        node.parentNode.parentNode.parentNode.appendChild(btn, node.parentNode.parentNode);
     }
 
     function append2Post(node, btn) {
@@ -1444,7 +1495,7 @@ function goodies(){
         if (window.location.pathname.includes('stories')) {
             storyOnClicked(target);
         } else if (document.querySelector('header') &&
-                   document.querySelector('header').contains(target)) {
+            document.querySelector('header').contains(target)) {
             profileOnClicked(target);
         } else {
             postOnClicked(target);
@@ -1457,7 +1508,7 @@ function goodies(){
         if (window.location.pathname.includes('stories')) {
             storyOnMouseIn(target);
         } else if (document.querySelector('header') &&
-                   document.querySelector('header').contains(target)) {
+            document.querySelector('header').contains(target)) {
             profileOnMouseIn(target);
         } else {
             postOnMouseIn(target);
@@ -1477,12 +1528,9 @@ function goodies(){
         if (url.length > 0) {
             // check url
             if (target.getAttribute("class").includes("download-btn")) {
-                // generate filename
-                // add poster name to filename
+                // generate filename 
                 let posterName = document.querySelector('header h2').textContent;
                 filename = posterName + filename;
-
-                // download
                 downloadResource(url, filename);
             } else {
                 // open url in new tab
@@ -1514,16 +1562,14 @@ function goodies(){
         if (url.length > 0) {
             // check url
             if (target.getAttribute("class").includes("download-btn")) {
-                let filename = url.split('?')[0].split('\\').pop().split('/').pop();;
-                // generate filename
-                // add time to filename
+                let mediaName = url.split('?')[0].split('\\').pop().split('/').pop();
+                let ext = mediaName.substr(mediaName.lastIndexOf('.') + 1);
+                mediaName = mediaName.substring(0, mediaName.lastIndexOf('.') + 1);
                 let datetime = new Date(articleNode.querySelector('time').getAttribute('datetime'));
-                filename = yyyymmdd(datetime) + '_' + datetime.toTimeString().split(' ')[0].replace(/:/g, '') + '-' + filename;
-                // add poster name to filename
+                datetime = yyyymmdd(datetime) + '_' + datetime.toTimeString().split(' ')[0].replace(/:/g, '');
                 let posterName = articleNode.querySelector('header a').getAttribute('href').replace(/\//g, '');
-                filename = posterName + '-' + filename;
-
-                // download
+                
+                let filename = filenameFormat(postFilenameTemplate, posterName, datetime, mediaName, ext);
                 downloadResource(url, filename);
             } else {
                 // open url in new tab
@@ -1611,19 +1657,19 @@ function goodies(){
         // extract url from target story and download or open it
         let sectionNode = storyGetSectionNode(target);
         let url = storyGetUrl(target, sectionNode);
-        let filename = url.split('?')[0].split('\\').pop().split('/').pop();
 
         // ==============================
         // = download or open media url =
         // ==============================
         if (target.getAttribute("class").includes("download-btn")) {
-            // generate filename
-            // add time to filename
+            let mediaName = url.split('?')[0].split('\\').pop().split('/').pop();
+            let ext = mediaName.substr(mediaName.lastIndexOf('.') + 1);
+            mediaName = mediaName.substring(0, mediaName.lastIndexOf('.') + 1);
             let datetime = new Date(sectionNode.querySelector('time').getAttribute('datetime'));
-            filename = yyyymmdd(datetime) + '_' + datetime.toTimeString().split(' ')[0].replace(/:/g, '') + '-' + filename;
-            // add poster name to filename
+            datetime = yyyymmdd(datetime) + '_' + datetime.toTimeString().split(' ')[0].replace(/:/g, '');
             let posterName = sectionNode.querySelector('header a').getAttribute('href').replace(/\//g, '');
-            filename = posterName + '-' + filename;
+
+            let filename = filenameFormat(storyFilenameTemplate, posterName, datetime, mediaName, ext);
             downloadResource(url, filename);
         } else {
             // open url in new tab
@@ -1644,9 +1690,23 @@ function goodies(){
         if (sectionNode.querySelector('video > source')) {
             url = sectionNode.querySelector('video > source').getAttribute('src');
         } else if (sectionNode.querySelector('img[decoding="sync"]')) {
+            let img = sectionNode.querySelector('img[decoding="sync"]');
+            url = img.srcset.split(/ \d+w/g)[0].trim(); // extract first src from srcset attr. of img
+            if (url.length > 0) {
+                return url;
+            }
             url = sectionNode.querySelector('img[decoding="sync"]').getAttribute('src');
         }
         return url;
+    }
+
+    function filenameFormat(template, id, datetime, medianame, ext) {
+        let filename = template;
+        filename = filename.replaceAll("%id%", id);
+        filename = filename.replaceAll("%datetime%", datetime);
+        filename = filename.replaceAll("%medianame%", medianame);
+        filename = filename.replaceAll("%ext%", ext);
+        return filename;
     }
 
     function openResource(url) {
@@ -1682,12 +1742,13 @@ function goodies(){
         })
             .then(response => response.blob())
             .then(blob => {
-            let blobUrl = window.URL.createObjectURL(blob);
-            forceDownload(blobUrl, filename);
-        })
+                let blobUrl = window.URL.createObjectURL(blob);
+                forceDownload(blobUrl, filename);
+            })
             .catch(e => console.error(e));
     }
     /*-------------video control----------*/
+    if(player==true){
     console.log('full control of player')
     var videoList = document.getElementsByTagName("video");
     setInterval(function(){
@@ -1695,9 +1756,60 @@ function goodies(){
             videoList[0].setAttribute("controls", "controls");
             videoList[0].style.zIndex = "1";
         }
-    }, 1000);
+    }, 1000);}
 
 
+/*----------------------------get followed list----------------------*/	
+function follow(){if(document.URL=="https://www.instagram.com/accounts/access_tool/accounts_you_follow"){
+	if(document.querySelector("body > div > div.page.-cx-PRIVATE-Page__body.-cx-PRIVATE-Page__body__ > div > div > h2")==null){
+var myVar = setInterval(myTimer, 800);}
+
+function myTimer() {
+if(document.querySelector("#react-root > section > main > div > article > main > button")==null){console.log("done scrolling");myStopFunction();myFunction();}
+else{
+  document.querySelector("#react-root > section > main > div > article > main > button").click();}
+}
+function myFunction() {
+  //var txt;
+  if (confirm("Do you want text, cancel means html")) {
+    totext();
+  } else {
+    tohtml();
+  }
+  //document.getElementById("demo").innerHTML = txt;
+}
+function myStopFunction() {
+  clearInterval(myVar);
+}
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+}
+
+function totext() {
+var i=1;var str="";
+while(document.querySelector("#react-root > section > main > div > article > main > section > div:nth-child("+i+")")!=null)
+{
+str=str+"https://www.instagram.com/"+document.querySelector("#react-root > section > main > div > article > main > section > div:nth-child("+i+")").innerText+"/\n";i++;
+}
+console.log(str);
+download("hello.txt",str);
+}
+function tohtml() {
+var i=1;var str="";
+while(document.querySelector("#react-root > section > main > div > article > main > section > div:nth-child("+i+")")!=null)
+{
+str=str+"<a href=\"https://www.instagram.com/"+document.querySelector("#react-root > section > main > div > article > main > section > div:nth-child("+i+")").innerText+"/\">"+document.querySelector("#react-root > section > main > div > article > main > section > div:nth-child("+i+")").innerText+"</a><br>";i++;
+}
+download("hello.html",str);
+}
+}
+}follow();
 }
 function od(){
     var nnn=localStorage.getItem("num2");
